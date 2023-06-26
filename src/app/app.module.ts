@@ -7,10 +7,17 @@ import { TemplateModule } from './template/template.module';
 import { HomeComponent } from './home/home.component';
 import { ClientsModule } from './clients/clients.module';
 import { ClientsService } from './clients.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
-  imports: [BrowserModule, AppRoutingModule, TemplateModule, ClientsModule],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    TemplateModule,
+    ClientsModule,
+  ],
   providers: [ClientsService],
   bootstrap: [AppComponent],
 })
