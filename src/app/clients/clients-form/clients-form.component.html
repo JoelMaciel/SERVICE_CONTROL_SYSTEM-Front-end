@@ -5,6 +5,21 @@
 <div class="container">
   <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="success == true">
+          Client successfully saved/updated
+        </div>
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngFor="let erro of errors"
+        >
+          {{ erro.userMessage }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="client.id">
       <div class="col-md-6">
         <div class="form-group">
           <label>Code :</label>
@@ -24,7 +39,7 @@
             type="text"
             class="form-control"
             name="creationDate"
-            [ngModel]="client.creationDate"
+            [ngModel]="client.creationDate | date : 'dd/MM/yyyy'"
             disabled="true"
           />
         </div>
