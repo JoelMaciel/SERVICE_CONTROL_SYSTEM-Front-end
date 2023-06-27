@@ -13,16 +13,27 @@
   color: rgb(96, 96, 97);
 }
 
-.btn__style {
-  background-color: rgb(184, 228, 190);
-  color: rgba(18, 13, 32, 0.342);
+.btn__style_save {
+  background-color: rgb(59, 143, 70);
+  color: white;
+  font-weight: 500;
   transition: transform 1s;
-  margin-top: 10px;
 }
-.btn__style:hover {
-  background-color: rgb(154, 190, 159);
-  font-weight: 600;
+.btn__style_save:hover {
+  background-color: rgb(68, 184, 83);
+  color: white;
   top: 2px;
+  transform: scale(1.1);
+}
+.btn__style_list {
+  background-color: rgb(211, 214, 8);
+  color: white;
+  font-weight: 600;
+  transition: transform 1s;
+}
+.btn__style_list:hover {
+  background-color: rgb(185, 185, 29);
+  top: 3px;
   transform: scale(1.1);
 }
 
@@ -34,6 +45,7 @@
   align-items: center;
   background-color: rgba(154, 216, 165, 0.836);
 }
+
 .alert-danger {
   display: flex;
   justify-content: center;

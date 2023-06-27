@@ -1,0 +1,22 @@
+.client__name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.breadcrumb-item {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.btn-warning {
+  background-color: rgb(225, 154, 226);
+  color: white;
+  font-weight: 500;
+  transition: transform 1s;
+}
+.btn-warning:hover {
+  background-color: rgb(193, 113, 196);
+  top: 3px;
+  transform: scale(1.1);
+}
