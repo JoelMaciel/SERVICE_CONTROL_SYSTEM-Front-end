@@ -1,0 +1,44 @@
+.client__name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(96, 96, 97);
+}
+.breadcrumb-item {
+  font-weight: bold;
+}
+
+.row {
+  font-weight: 600;
+  color: rgb(96, 96, 97);
+}
+
+.btn__style {
+  background-color: rgb(191, 134, 238);
+  color: white;
+  transition: transform 1s;
+}
+.btn__style:hover {
+  background-color: rgb(141, 62, 206);
+  font-weight: 600;
+  top: 2px;
+  transform: scale(1.1);
+}
+
+.alert-success {
+  display: flex;
+  font-size: 18px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(161, 131, 185, 0.836);
+}
+.alert-danger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.breadcrumb-item {
+  font-size: 17px;
+}
