@@ -14,12 +14,13 @@
 }
 
 .btn__style {
-  background-color: rgb(191, 134, 238);
-  color: white;
+  background-color: rgb(184, 228, 190);
+  color: rgba(18, 13, 32, 0.342);
   transition: transform 1s;
+  margin-top: 10px;
 }
 .btn__style:hover {
-  background-color: rgb(141, 62, 206);
+  background-color: rgb(154, 190, 159);
   font-weight: 600;
   top: 2px;
   transform: scale(1.1);
@@ -31,7 +32,7 @@
   color: white;
   justify-content: center;
   align-items: center;
-  background-color: rgba(161, 131, 185, 0.836);
+  background-color: rgba(154, 216, 165, 0.836);
 }
 .alert-danger {
   display: flex;
