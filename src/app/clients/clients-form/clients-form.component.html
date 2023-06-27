@@ -71,12 +71,18 @@
     </div>
     <div class="row">
       <div class="col-md-2">
-        <div class="form-group">
-          <button type="submit" class="btn btn__style">
-            <i class="fa fa-save"></i> Save
-          </button>
-        </div>
+        <button type="submit" class="btn btn-success">
+          <i class="fa fa-save"></i> Save
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger ml-2"
+          (click)="listClients()"
+        >
+          <i class="fa fa-arrow-circle-left"></i> List
+        </button>
       </div>
+      <div class="col-md-2"></div>
     </div>
   </form>
 </div>
