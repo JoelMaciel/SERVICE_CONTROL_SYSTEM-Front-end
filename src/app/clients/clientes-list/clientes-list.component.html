@@ -1,0 +1,37 @@
+<h2 class="mt-4 client__name">Clients</h2>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">Consult</li>
+</ol>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <button class="btn btn-warning mb-3">
+        <i class="fa fa-plus"></i> New
+      </button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table table-condesed table-hover">
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>CPF</th>
+            <th>Registration Date</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let client of clients">
+            <td>{{ client.id }}</td>
+            <td>{{ client.name }}</td>
+            <td>{{ client.cpf }}</td>
+            <td>{{ client.creationDate | date : "dd/MM/yyyy" }}</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

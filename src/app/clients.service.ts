@@ -9,11 +9,8 @@ import { Observable } from 'rxjs';
 export class ClientsService {
   constructor(private http: HttpClient) {}
 
-  getClient(): Client {
-    let client: Client = new Client();
-    client.name = 'Joel Maciel';
-    client.cpf = '9999966666';
-    return client;
+  listClients(): Observable<Client[]> {
+    return this.http.get<Client[]>('http://localhost:8080/api/clients');
   }
 
   save(client: Client): Observable<Client> {
