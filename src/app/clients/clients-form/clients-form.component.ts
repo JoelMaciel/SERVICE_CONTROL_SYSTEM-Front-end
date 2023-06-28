@@ -3,6 +3,7 @@ import { Client } from '../client';
 import { ClientsService } from 'src/app/clients.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { UpdateClient } from '../updateClient';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-clients-form',
@@ -24,14 +25,16 @@ export class ClientsFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    let params: Params = this.activetedRoute.params;
-    if (params && params.value && params.value.id) {
-      this.id = params.value.id;
-      this.service.getClientById(this.id).subscribe(
-        (response) => (this.client = response),
-        (errorResponse) => (this.client = new Client())
-      );
-    }
+    let params: Observable<Params> = this.activetedRoute.params;
+    params.subscribe((urlParams) => {
+      this.id = urlParams['id'];
+      if (this.id) {
+        this.service.getClientById(this.id).subscribe(
+          (response) => (this.client = response),
+          (errorResponse) => (this.client = new Client())
+        );
+      }
+    });
   }
 
   listClients() {
