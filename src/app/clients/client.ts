@@ -3,4 +3,5 @@ export class Client {
   name: string;
   cpf: string;
   creationDate: string;
+  updateDate?: string;
 }

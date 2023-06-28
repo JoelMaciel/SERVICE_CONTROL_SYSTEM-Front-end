@@ -28,7 +28,14 @@
             <td>{{ client.name }}</td>
             <td>{{ client.cpf }}</td>
             <td>{{ client.creationDate | date : "dd/MM/yyyy" }}</td>
-            <td></td>
+            <td>
+              <button
+                class="btn btn-primary"
+                routerLink="/client-form/{{ client.id }}"
+              >
+                <i class="fa fa-pen"></i>
+              </button>
+            </td>
           </tr>
         </tbody>
       </table>

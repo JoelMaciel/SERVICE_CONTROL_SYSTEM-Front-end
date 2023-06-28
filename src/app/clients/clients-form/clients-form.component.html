@@ -1,6 +1,8 @@
 <h2 class="mt-4 client__name">Clients</h2>
 <ol class="breadcrumb mb-4">
-  <li class="breadcrumb-item active">Register</li>
+  <li class="breadcrumb-item active">
+    {{ client.id ? "Edition" : "Register" }}
+  </li>
 </ol>
 <div class="container">
   <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
@@ -71,8 +73,11 @@
     </div>
     <div class="row">
       <div class="col-md-3 mb-4 mt-3">
-        <button type="submit" class="btn btn__style_save">
+        <button type="submit" class="btn btn__style_save" *ngIf="!client.id">
           <i class="fa fa-save"></i> Save
+        </button>
+        <button type="submit" class="btn btn__style_update" *ngIf="client.id">
+          <i class="fa fa-sync-alt"></i> Update
         </button>
         <button
           type="button"
