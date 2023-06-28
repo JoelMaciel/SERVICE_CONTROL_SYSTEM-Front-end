@@ -29,4 +29,10 @@ export class ClientsService {
   save(client: Client): Observable<Client> {
     return this.http.post<Client>('http://localhost:8080/api/clients', client);
   }
+
+  delete(client: Client): Observable<any> {
+    return this.http.delete<any>(
+      `http://localhost:8080/api/clients/${client.id}`
+    );
+  }
 }
