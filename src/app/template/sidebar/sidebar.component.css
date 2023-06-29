@@ -4,3 +4,13 @@
   color: white;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
+.nav-link {
+  color: rgb(182, 175, 175);
+  transition: transform 1s;
+}
+.nav-link:hover {
+  background-color: rgba(135, 8, 167, 0.678);
+  color: white;
+  top: 4px;
+  transform: scale(1.13);
+}

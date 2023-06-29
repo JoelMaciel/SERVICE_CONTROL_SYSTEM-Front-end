@@ -1,0 +1,71 @@
+.client__name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.breadcrumb-item {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.btn-warning {
+  color: white;
+  font-weight: 500;
+  transition: transform 0.5s;
+}
+.btn-warning:hover {
+  top: 3px;
+  transform: scale(1.1);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  color: rgb(233, 229, 229);
+  background-color: rgba(92, 23, 133, 0.692);
+}
+.modal-body {
+  display: flex;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 16px;
+  color: red;
+}
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-danger {
+  transition: transform 0.5s;
+}
+.btn-danger:hover {
+  top: 3px;
+  transform: scale(1.1);
+}
+
+.btn-success {
+  transition: transform 0.5s;
+}
+.btn-success:hover {
+  top: 3px;
+  transform: scale(1.1);
+}
+
+.btn-primary {
+  transition: transform 0.5s;
+  margin-right: 2.5px;
+  margin-bottom: 1px;
+}
+.btn-primary:hover {
+  top: 3px;
+  transform: scale(1.1);
+}
+
+.btn_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

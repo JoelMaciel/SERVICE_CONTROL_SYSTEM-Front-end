@@ -1,0 +1,96 @@
+<h2 class="mt-4 client__name">Clients</h2>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item active">
+    {{ client.id ? "Edition" : "Register" }}
+  </li>
+</ol>
+<div class="container">
+  <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="success == true">
+          Client successfully saved/updated
+        </div>
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngFor="let erro of errors"
+        >
+          {{ erro.userMessage }}
+        </div>
+        <div class="alert alert-danger" role="alert" *ngIf="errorCpf != null">
+          {{ errorCpf }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="client.id">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Code :</label>
+          <input
+            type="text"
+            class="form-control"
+            [ngModel]="client.id"
+            name="id"
+            disabled="true"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Registration Date :</label>
+          <input
+            type="text"
+            class="form-control"
+            name="creationDate"
+            [ngModel]="client.creationDate | date : 'dd/MM/yyyy'"
+            disabled="true"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Name : * </label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="client.name"
+            name="name"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>CPF : *</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="client.cpf"
+            name="cpf"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 mb-4 mt-3">
+        <button type="submit" class="btn btn__style_save" *ngIf="!client.id">
+          <i class="fa fa-save"></i> Save
+        </button>
+        <button type="submit" class="btn btn__style_update" *ngIf="client.id">
+          <i class="fa fa-sync-alt"></i> Update
+        </button>
+        <button
+          type="button"
+          class="btn ml-3 btn__style_list"
+          (click)="listClients()"
+        >
+          <i class="fa fa-arrow-circle-left"></i> List
+        </button>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </form>
+</div>
