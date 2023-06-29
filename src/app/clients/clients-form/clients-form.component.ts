@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from '../client';
 import { ClientsService } from 'src/app/clients.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { UpdateClient } from '../updateClient';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -14,6 +13,7 @@ export class ClientsFormComponent implements OnInit {
   client: Client;
   success: boolean = false;
   errors: string[];
+  errorCpf: string;
   id: number;
 
   constructor(
@@ -57,10 +57,15 @@ export class ClientsFormComponent implements OnInit {
         (response) => {
           this.success = true;
           this.errors = [];
+          this.errorCpf = null;
           this.client = response;
         },
         (errorResponse) => {
           this.errors = errorResponse.error.objects;
+          this.errorCpf = errorResponse.error.userMessage;
+          console.log(errorResponse.error.userMessage);
+          console.log(errorResponse);
+
           this.success = false;
         }
       );

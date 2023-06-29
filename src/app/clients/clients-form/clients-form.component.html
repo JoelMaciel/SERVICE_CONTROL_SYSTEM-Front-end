@@ -18,6 +18,9 @@
         >
           {{ erro.userMessage }}
         </div>
+        <div class="alert alert-danger" role="alert" *ngIf="errorCpf != null">
+          {{ errorCpf }}
+        </div>
       </div>
     </div>
 
