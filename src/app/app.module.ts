@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { ClientsModule } from './clients/clients.module';
 import { ClientsService } from './clients.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ServiceProvidedModule } from './service-provided/service-provided.module';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent],
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     TemplateModule,
     ClientsModule,
+    ServiceProvidedModule,
   ],
   providers: [ClientsService],
   bootstrap: [AppComponent],
