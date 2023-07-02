@@ -63,9 +63,6 @@ export class ClientsFormComponent implements OnInit {
         (errorResponse) => {
           this.errors = errorResponse.error.objects;
           this.errorCpf = errorResponse.error.userMessage;
-          console.log(errorResponse.error.userMessage);
-          console.log(errorResponse);
-
           this.success = false;
         }
       );

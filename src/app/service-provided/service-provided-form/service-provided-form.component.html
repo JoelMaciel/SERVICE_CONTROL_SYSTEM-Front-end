@@ -6,6 +6,20 @@
   <form #form="ngForm" (submit)="onSubmit()">
     <div class="row">
       <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="success == true">
+          Service provided successfully saved
+        </div>
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngFor="let erro of errors"
+        >
+          {{ erro.userMessage }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
         <div class="form-group">
           <label>Client: </label>
           <select
@@ -35,20 +49,7 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6">
-        <div class="form-group">
-          <label>Date:</label>
-          <input
-            class="form-control"
-            [(ngModel)]="serviceProvided.creationDate"
-            type="text"
-            name="creationDate"
-            id="creationDate"
-          />
-        </div>
-      </div>
-    </div>
+    <div class="row"></div>
     <div class="row">
       <div class="col-md-6">
         <div class="form-group">
