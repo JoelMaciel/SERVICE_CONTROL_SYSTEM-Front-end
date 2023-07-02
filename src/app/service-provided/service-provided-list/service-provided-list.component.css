@@ -1,0 +1,32 @@
+.btn-primary {
+  transition: transform 0.4s;
+}
+.btn-primary:hover {
+  top: 2px;
+  transform: scale(1.12);
+}
+
+.btn-warning {
+  transition: transform 0.4s;
+}
+.btn-warning:hover {
+  top: 2px;
+  transform: scale(1.12);
+}
+.font_h1 {
+  color: rgb(87, 84, 84);
+  font-weight: bold;
+}
+.font_li {
+  font-weight: bold;
+  font-size: 19px;
+  color: rgb(87, 84, 84);
+}
+
+.bt_table {
+  background-color: rgba(233, 213, 252, 0.555);
+}
+
+.bg_tr {
+  background-color: rgba(144, 97, 189, 0.089);
+}

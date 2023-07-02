@@ -1,12 +1,18 @@
 .client__name {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-weight: bold;
+  color: rgb(87, 84, 84);
+}
+
+.font_li {
+  font-weight: bold;
+  font-size: 19px;
+  color: rgb(87, 84, 84);
 }
 
 .breadcrumb-item {
-  font-weight: 600;
-  font-size: 15px;
+  color: rgb(87, 84, 84);
+  font-weight: bold;
+  font-size: 20px;
 }
 
 .btn-warning {

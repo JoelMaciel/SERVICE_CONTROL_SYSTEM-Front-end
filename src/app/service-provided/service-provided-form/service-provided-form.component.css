@@ -1,0 +1,16 @@
+.btn_style {
+  color: white;
+  font-weight: 500;
+}
+.text-center {
+  font-weight: bold;
+  color: rgb(88, 87, 87);
+}
+.breadcrumb-item {
+  font-weight: bold;
+  color: rgb(97, 94, 94);
+  font-size: 20px;
+}
+.row_style {
+  font-weight: bold;
+}

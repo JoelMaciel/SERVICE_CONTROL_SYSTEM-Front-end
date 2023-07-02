@@ -1,6 +1,6 @@
 export class ServiceProvided {
   description: string;
   price: number;
-  creationDate: string;
+  creationDate: Date;
   clientId: number;
 }
