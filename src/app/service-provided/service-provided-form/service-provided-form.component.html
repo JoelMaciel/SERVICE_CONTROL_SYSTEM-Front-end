@@ -1,0 +1,76 @@
+<h1 class="mt-4">Service Provided</h1>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item" active>New</li>
+</ol>
+<div class="container">
+  <form #form="ngForm" (submit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success" role="alert" *ngIf="success == true">
+          Service provided successfully saved
+        </div>
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngFor="let erro of errors"
+        >
+          {{ erro.userMessage }}
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Client: </label>
+          <select
+            class="form-control"
+            [(ngModel)]="serviceProvided.clientId"
+            [ngModelOptions]="{ standalone: true }"
+          >
+            <option value="">Select...</option>
+            <option *ngFor="let client of clients" [ngValue]="client.id">
+              {{ client.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label>Description:</label>
+          <input
+            class="form-control"
+            [(ngModel)]="serviceProvided.description"
+            type="text"
+            name="description"
+            id="description"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row"></div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Price:</label>
+          <input
+            class="form-control"
+            [(ngModel)]="serviceProvided.price"
+            type="text"
+            name="price"
+            id="price"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3">
+        <button type="submit" class="btn btn-success">
+          <i class="fa fa-save"></i>
+          Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
