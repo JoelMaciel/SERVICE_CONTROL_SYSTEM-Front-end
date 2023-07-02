@@ -1,1 +1,76 @@
-<p>service-provided-list works!</p>
+<div class="text-center">
+  <h1 class="mt-4 font_h1">Service Provided</h1>
+</div>
+<ol class="breadcrumb mb-4">
+  <li class="breadcrumb-item font_li" active>Consult</li>
+</ol>
+<div class="container">
+  <form #consultForm="ngForm" (submit)="search()">
+    <div class="row">
+      <div class="col-md-6 font-weight-bold">
+        <label>Client Name</label>
+        <input
+          type="text"
+          [(ngModel)]="name"
+          name="name"
+          class="form-control"
+          id="name"
+        />
+      </div>
+      <div class="col-md-6 font-weight-bold">
+        <label for="inputMonth">Month:</label>
+        <select [(ngModel)]="month" name="month" class="form-control">
+          <option value="">Select...</option>
+          <option *ngFor="let month of months" [value]="month">
+            {{ month }}
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-3 mt-4">
+        <button type="submit" class="btn btn-primary">
+          <i class="fa fa-search"></i>
+          Search
+        </button>
+
+        <button
+          type="button"
+          routerLink="/service-provided-form"
+          class="btn btn-warning ml-3"
+        >
+          <i class="fa fa-plus"></i>
+          New
+        </button>
+      </div>
+    </div>
+  </form>
+  <br />
+  <div class="row">
+    <div class="col-md-12">
+      <div class="text-center">
+        <div class="alert alert-warning" role="alert" *ngIf="message">
+          {{ message }}
+        </div>
+      </div>
+      <table class="table bt_table">
+        <thead>
+          <tr class="bg_tr">
+            <th>Client</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let service of listServiceProvided">
+            <td>{{ service.client.name }}</td>
+            <td>{{ service.description }}</td>
+            <td>{{ service.price }}</td>
+            <td>{{ service.creationDate | date : "MM/dd/yyyy" }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

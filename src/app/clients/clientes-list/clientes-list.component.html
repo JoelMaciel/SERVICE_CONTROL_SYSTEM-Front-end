@@ -1,4 +1,6 @@
-<h2 class="mt-4 client__name">Clients</h2>
+<div class="text-center">
+  <h2 class="mt-4 client__name">Clients</h2>
+</div>
 <ol class="breadcrumb mb-4">
   <li class="breadcrumb-item active">Consult List</li>
 </ol>
@@ -37,7 +39,7 @@
             <td>{{ client.id }}</td>
             <td>{{ client.name }}</td>
             <td>{{ client.cpf }}</td>
-            <td>{{ client.creationDate | date : "dd/MM/yyyy" }}</td>
+            <td>{{ client.creationDate | date : "MM/dd/yyyy" }}</td>
             <td>
               <button
                 class="btn btn-primary"
