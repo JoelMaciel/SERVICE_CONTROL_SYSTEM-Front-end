@@ -1,0 +1,92 @@
+<div id="layoutAuthentication">
+  <div id="layoutAuthentication_content">
+    <main>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="car shadow border-0 rounded-lg mt-5">
+              <div class="card-header">
+                <h3 class="text-center font-weight-light my-4">
+                  {{ registering ? "New User Registration" : "Enter" }}
+                </h3>
+              </div>
+              <div class="card-body">
+                <div class="alert alert-danger" *ngIf="loginError">
+                  Incorrect login or password
+                </div>
+                <form #loginForm="ngForm" (submit)="onSubmit()">
+                  <div class="form-group">
+                    <label class="small mb-2">
+                      <i class="fa fa fa-user mr-1"></i>
+                      Login</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control py-4"
+                      name="username"
+                      [(ngModel)]="username"
+                      placeholder="Enter your login"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="small mb-2">
+                      <i class="fa fa-lock mr-1"></i>
+                      Password</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control py-4"
+                      name="password"
+                      [(ngModel)]="password"
+                      placeholder="Enter your password"
+                    />
+                  </div>
+                  <div
+                    class="form-group align-items-center justify-content-between mt-4 mb-0"
+                  >
+                    <button
+                      type="submit"
+                      class="btn btn_login btn_style"
+                      *ngIf="!registering"
+                    >
+                      Login
+                    </button>
+                    <div class="text-center">
+                      <button
+                        type="button"
+                        class="btn btn_style btn_login"
+                        *ngIf="registering"
+                      >
+                        Register
+                      </button>
+                      <button
+                        type="button"
+                        (click)="unsubscribe()"
+                        class="btn btn-cancel btn_style ml-2"
+                        *ngIf="registering"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer text-center">
+                <div class="small btn_style">
+                  <a
+                    href="#"
+                    class="link_style"
+                    (click)="prepareRegistration($event)"
+                  >
+                    Don't have an account? Register!
+                    <i class="fa fa-heart ml-1"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

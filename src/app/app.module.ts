@@ -10,9 +10,11 @@ import { ClientsService } from './clients.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceProvidedModule } from './service-provided/service-provided.module';
 import { ServiceProvidedService } from './service-provided.service';
+import { LoginComponent } from './login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -20,6 +22,7 @@ import { ServiceProvidedService } from './service-provided.service';
     TemplateModule,
     ClientsModule,
     ServiceProvidedModule,
+    FormsModule,
   ],
   providers: [ClientsService, ServiceProvidedService],
   bootstrap: [AppComponent],
