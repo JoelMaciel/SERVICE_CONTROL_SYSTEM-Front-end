@@ -246,11 +246,11 @@ button:focus {
 }
 
 .btn_style {
-  transition: transform 1s;
+  transition: transform 0.5s;
 }
 .btn_style:hover {
   top: 3px;
-  transform: scale(1.12);
+  transform: scale(1.1);
 }
 
 input,
