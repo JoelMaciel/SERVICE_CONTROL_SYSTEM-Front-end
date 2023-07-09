@@ -8,7 +8,7 @@ import { ServiceProvidedService } from 'src/app/service-provided.service';
   styleUrls: ['./service-provided-list.component.css'],
 })
 export class ServiceProvidedListComponent implements OnInit {
-  name: string;
+  username: string;
   month: number;
   months: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   listServiceProvided: ServiceProvidedSearch[];
@@ -19,7 +19,7 @@ export class ServiceProvidedListComponent implements OnInit {
   ngOnInit(): void {}
 
   search() {
-    this.service.search(this.name, this.month).subscribe((response) => {
+    this.service.search(this.username, this.month).subscribe((response) => {
       this.listServiceProvided = response;
       if (this.listServiceProvided.length <= 0) {
         this.message = 'No records found.';

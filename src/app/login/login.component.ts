@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { ClientLogin } from './clientLogin';
 
 @Component({
   selector: 'app-login',
@@ -9,13 +11,30 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   username: string;
   password: string;
-  loginError: boolean;
+  email: string;
+  cpf: string;
   registering: boolean;
+  successMessage: string;
+  errors: string[];
+  errorViolation: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   onSubmit() {
-    this.router.navigate(['/home']);
+    const client: ClientLogin = {
+      username: this.username,
+      password: this.password,
+    };
+
+    this.authService.loginClient(client).subscribe(
+      (response) => {
+        this.authService.setToken(response.token);
+        this.router.navigate(['/home']);
+      },
+      (error) => {
+        console.error('Login failed:', error);
+      }
+    );
   }
 
   prepareRegistration(event) {
@@ -24,5 +43,27 @@ export class LoginComponent {
   }
   unsubscribe() {
     this.registering = false;
+  }
+
+  loginClient() {
+    const client: ClientLogin = {
+      username: this.username,
+      password: this.password,
+    };
+
+    this.authService.loginClient(client).subscribe(
+      (response) => {
+        const token = response.token;
+        this.authService.setToken(token);
+        this.successMessage = 'Welcome';
+        this.errors = null;
+        this.errorViolation = null;
+      },
+      (errorsResponse) => {
+        this.successMessage = null;
+        this.errors = errorsResponse.error.objects;
+        this.errorViolation = errorsResponse.error.userMessage;
+      }
+    );
   }
 }
