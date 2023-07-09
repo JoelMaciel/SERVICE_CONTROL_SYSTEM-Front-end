@@ -16,9 +16,9 @@ export class ServiceProvidedService {
     return this.http.post<ServiceProvided>(this.apiURL, serviceProvided);
   }
 
-  search(name: string, month: number): Observable<ServiceProvidedSearch[]> {
+  search(username: string, month: number): Observable<ServiceProvidedSearch[]> {
     const httpParams = new HttpParams()
-      .set('name', name)
+      .set('username', username)
       .set('month', month ? month.toString() : '');
 
     const url = this.apiURL + '?' + httpParams;

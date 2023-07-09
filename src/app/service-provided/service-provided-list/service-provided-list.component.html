@@ -11,7 +11,7 @@
         <label>Client Name</label>
         <input
           type="text"
-          [(ngModel)]="name"
+          [(ngModel)]="username"
           name="name"
           class="form-control"
           id="name"
@@ -64,7 +64,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let service of listServiceProvided">
-            <td>{{ service.client.name }}</td>
+            <td>{{ service.client.username }}</td>
             <td>{{ service.description }}</td>
             <td>{{ service.price }}</td>
             <td>{{ service.creationDate | date : "MM/dd/yyyy" }}</td>

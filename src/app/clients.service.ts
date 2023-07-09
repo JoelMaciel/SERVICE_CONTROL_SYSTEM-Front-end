@@ -4,14 +4,16 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { UpdateClient } from './clients/updateClient';
 import { environment } from 'src/environments/environment';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ClientsService {
   apiURL: string = environment.apiBaseURL + '/api/clients';
+  apiURLSignup = environment.apiBaseURL + '/api/auth/signup';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private authService: AuthService) {}
 
   listClients(): Observable<Client[]> {
     return this.http.get<Client[]>(this.apiURL);
@@ -22,7 +24,8 @@ export class ClientsService {
   }
 
   update(client: Client): Observable<UpdateClient> {
-    const { id, creationDate, updateDate, ...updateClientData } = client;
+    const { id, cpf, password, creationDate, updateDate, ...updateClientData } =
+      client;
     return this.http.put<UpdateClient>(
       `${this.apiURL}/${client.id}`,
       updateClientData
@@ -30,7 +33,7 @@ export class ClientsService {
   }
 
   save(client: Client): Observable<Client> {
-    return this.http.post<Client>(`${this.apiURL}`, client);
+    return this.http.post<Client>(this.apiURLSignup, client);
   }
 
   delete(client: Client): Observable<any> {

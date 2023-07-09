@@ -57,7 +57,7 @@
           <input
             type="text"
             class="form-control"
-            [(ngModel)]="client.name"
+            [(ngModel)]="client.username"
             name="name"
           />
         </div>
@@ -70,6 +70,28 @@
             class="form-control"
             [(ngModel)]="client.cpf"
             name="cpf"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Email: *</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="client.email"
+            name="email"
+          />
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Password: *</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="client.password"
+            name="password"
           />
         </div>
       </div>
