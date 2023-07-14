@@ -37,10 +37,10 @@
         <tbody>
           <tr *ngFor="let client of clients">
             <td>{{ client.id }}</td>
-            <td>{{ client.username }}</td>
+            <td>{{ client.name }}</td>
             <td>{{ client.cpf }}</td>
             <td>{{ client.email }}</td>
-            <td>{{ client.creationDate | date : "MM/dd/yyyy" }}</td>
+            <td>{{ client.creationDate }}</td>
             <td>
               <button
                 class="btn btn-primary"
@@ -69,7 +69,7 @@
           <h4>Confirmation</h4>
         </div>
         <div class="modal-body" *ngIf="clientSelected">
-          Confirm the deletion of the client {{ clientSelected.username }} ?
+          Confirm the deletion of the client {{ clientSelected.name }} ?
         </div>
         <div class="modal-footer">
           <button

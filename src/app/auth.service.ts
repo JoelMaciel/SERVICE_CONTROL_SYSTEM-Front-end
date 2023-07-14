@@ -2,9 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { ClientLogin } from './login/clientLogin';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
+import { UserLogin } from './login/userLogin';
 
 @Injectable({
   providedIn: 'root',
@@ -25,7 +25,7 @@ export class AuthService {
     return false;
   }
 
-  getClientAuthenticated() {
+  getUserAuthenticated() {
     const token = this.getToken();
     if (token) {
       const user = this.jwtHelper.decodeToken(token).sub;
@@ -39,8 +39,8 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  loginClient(client: ClientLogin): Observable<any> {
-    return this.http.post<any>(this.apiURL, client);
+  loginUser(user: UserLogin): Observable<any> {
+    return this.http.post<any>(this.apiURL, user);
   }
 
   setToken(token: string): void {

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
-import { ClientLogin } from './clientLogin';
+import { UserLogin } from './userLogin';
 
 @Component({
   selector: 'app-login',
@@ -21,12 +21,12 @@ export class LoginComponent {
   constructor(private router: Router, private authService: AuthService) {}
 
   onSubmit() {
-    const client: ClientLogin = {
+    const user: UserLogin = {
       username: this.username,
       password: this.password,
     };
 
-    this.authService.loginClient(client).subscribe(
+    this.authService.loginUser(user).subscribe(
       (response) => {
         this.authService.setToken(response.token);
         this.router.navigate(['/home']);
@@ -46,12 +46,12 @@ export class LoginComponent {
   }
 
   loginClient() {
-    const client: ClientLogin = {
+    const user: UserLogin = {
       username: this.username,
       password: this.password,
     };
 
-    this.authService.loginClient(client).subscribe(
+    this.authService.loginUser(user).subscribe(
       (response) => {
         const token = response.token;
         this.authService.setToken(token);

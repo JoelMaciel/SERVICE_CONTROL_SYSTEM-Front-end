@@ -15,9 +15,18 @@ import { FormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { AuthService } from './auth.service';
 import { TokenInterceptor } from './token.interceptor';
+import { SignupComponent } from './signup/signup.component';
+import { UserService } from './user.service';
+import { SignupModule } from './signup/signup.module';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, LayoutComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    LoginComponent,
+    LayoutComponent,
+    // SignupComponent,
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -26,11 +35,13 @@ import { TokenInterceptor } from './token.interceptor';
     ClientsModule,
     ServiceProvidedModule,
     FormsModule,
+    SignupModule,
   ],
   providers: [
     ClientsService,
     ServiceProvidedService,
     AuthService,
+    UserService,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
