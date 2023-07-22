@@ -13,8 +13,15 @@ export class UserService {
   apiURL: string = environment.apiBaseURL + '/api/users';
   apiURLSignup = environment.apiBaseURL + '/api/auth/signup';
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient) {}
 
+  listUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.apiURL);
+  }
+
+  getUserById(id: number): Observable<User> {
+    return this.http.get<User>(`${this.apiURL}/${id}`);
+  }
   save(user: User): Observable<User> {
     return this.http.post<User>(this.apiURLSignup, user);
   }
@@ -25,5 +32,9 @@ export class UserService {
       `${this.apiURL}/${user.id}`,
       updateUserData
     );
+  }
+
+  delete(user: User): Observable<any> {
+    return this.http.delete<any>(`${this.apiURL}/${user.id}`);
   }
 }

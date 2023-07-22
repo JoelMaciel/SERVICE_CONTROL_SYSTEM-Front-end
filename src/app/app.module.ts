@@ -15,24 +15,20 @@ import { FormsModule } from '@angular/forms';
 import { LayoutComponent } from './layout/layout.component';
 import { AuthService } from './auth.service';
 import { TokenInterceptor } from './token.interceptor';
-import { SignupComponent } from './signup/signup.component';
 import { UserService } from './user.service';
 import { SignupModule } from './signup/signup.module';
+import { UsersModule } from './users/users.module';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    LayoutComponent,
-    // SignupComponent,
-  ],
+  declarations: [AppComponent, HomeComponent, LoginComponent, LayoutComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     TemplateModule,
     ClientsModule,
+    UsersModule,
     ServiceProvidedModule,
     FormsModule,
     SignupModule,

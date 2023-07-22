@@ -7,6 +7,7 @@ import { SignupRoutingModule } from './signup-routing.module';
 @NgModule({
   declarations: [SignupComponent],
   imports: [CommonModule, SignupRoutingModule, FormsModule],
-  exports: [SignupComponent],
+  exports: [],
+  // exports: [SignupComponent],
 })
 export class SignupModule {}

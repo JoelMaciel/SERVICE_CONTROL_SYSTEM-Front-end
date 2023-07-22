@@ -13,7 +13,7 @@ export class ClientsService {
   apiURL: string = environment.apiBaseURL + '/api/clients';
   apiURLSignup = environment.apiBaseURL + '/api/auth/signup';
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient) {}
 
   listClients(): Observable<Client[]> {
     return this.http.get<Client[]>(this.apiURL);

@@ -2,3 +2,42 @@
   width: 400px;
   height: 350px;
 }
+.container {
+  display: flex;
+  justify-items: baseline;
+}
+.button_style {
+  margin-left: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  width: 50%;
+}
+.btn {
+  font-size: 30px;
+  color: azure;
+  font-weight: 600;
+  margin-bottom: 40px;
+  background-color: rgb(119, 126, 231);
+  transition: transform 0.6s;
+}
+
+.btn:hover {
+  background-color: rgb(82, 91, 207);
+  top: 3px;
+  transform: scale(1.1);
+}
+
+h1 {
+  color: rgb(159, 49, 192);
+}
+h5 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 600;
+  color: rgb(159, 49, 192);
+}

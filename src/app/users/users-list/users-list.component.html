@@ -1,17 +1,13 @@
 <div class="text-center">
-  <h2 class="mt-4 client__name">Clients</h2>
+  <h2 class="mt-4 client__name">Users</h2>
 </div>
 <ol class="breadcrumb mb-4">
   <li class="breadcrumb-item active">Consult List</li>
 </ol>
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <div
-        class="alert alert-success text-center"
-        role="alert"
-        *ngIf="messageSuccess"
-      >
+    <div class="col-md-12 text-center">
+      <div class="alert alert-success" role="alert" *ngIf="messageSuccess">
         {{ messageSuccess }}
       </div>
       <div
@@ -25,7 +21,7 @@
   </div>
   <div class="row">
     <div class="col-md-2">
-      <button class="btn btn-warning mb-3" (click)="newRegisterClient()">
+      <button class="btn btn-warning mb-3" (click)="newRegisterUser()">
         <i class="fa fa-plus"></i> New
       </button>
     </div>
@@ -43,21 +39,21 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let client of clients">
-            <td>{{ client.id }}</td>
-            <td>{{ client.name }}</td>
-            <td>{{ client.cpf }}</td>
-            <td>{{ client.email }}</td>
-            <td>{{ client.creationDate }}</td>
+          <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ user.cpf }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.creationDate }}</td>
             <td>
               <button
                 class="btn btn-primary"
-                routerLink="/clients/form/{{ client.id }}"
+                routerLink="/users/form/{{ user.id }}"
               >
                 <i class="fa fa-pen"></i>
               </button>
               <button
-                (click)="prepareDeletion(client)"
+                (click)="prepareDeletion(user)"
                 class="btn btn-danger"
                 data-toggle="modal"
                 data-target="#modalDeletion"
@@ -76,13 +72,13 @@
         <div class="modal-header">
           <h4>Confirmation</h4>
         </div>
-        <div class="modal-body" *ngIf="clientSelected">
-          Confirm the deletion of the client {{ clientSelected.name }} ?
+        <div class="modal-body" *ngIf="userSelected">
+          Confirm the deletion of the user {{ userSelected.username }} ?
         </div>
         <div class="modal-footer">
           <button
             class="btn btn-success"
-            (click)="deleteClient()"
+            (click)="deleteUser()"
             data-dismiss="modal"
           >
             Confirm

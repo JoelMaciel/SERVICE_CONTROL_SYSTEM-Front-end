@@ -19,9 +19,9 @@ export class ClientesListComponent implements OnInit {
 
   constructor(
     private service: ClientsService,
-    private router: Router,
-    private authService: AuthService
-  ) {}
+    private router: Router
+  ) // private authService: AuthService
+  {}
 
   ngOnInit(): void {
     this.service.listClients().subscribe(
