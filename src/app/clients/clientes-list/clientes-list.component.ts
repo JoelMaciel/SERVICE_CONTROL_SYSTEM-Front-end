@@ -3,7 +3,7 @@ import { Client } from '../client';
 import { ClientsService } from 'src/app/clients.service';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth.service';
-import { ClientLogin } from 'src/app/login/clientLogin';
+import { UserLogin } from 'src/app/login/userLogin';
 
 @Component({
   selector: 'app-clientes-list',
@@ -12,16 +12,16 @@ import { ClientLogin } from 'src/app/login/clientLogin';
 })
 export class ClientesListComponent implements OnInit {
   clients: Client[] = [];
-  clientLogin: ClientLogin;
+  userLogin: UserLogin;
   clientSelected: Client;
   messageSuccess: string;
   messageError: string;
 
   constructor(
     private service: ClientsService,
-    private router: Router,
-    private authService: AuthService
-  ) {}
+    private router: Router
+  ) // private authService: AuthService
+  {}
 
   ngOnInit(): void {
     this.service.listClients().subscribe(
@@ -45,8 +45,9 @@ export class ClientesListComponent implements OnInit {
       (response) => {
         (this.messageSuccess = 'Client deleted successfully'), this.ngOnInit();
       },
-      (error) =>
-        (this.messageError = 'An error occurred while deleting the client')
+      (errorResponse) =>
+        (this.messageError =
+          'Client cannot be deleted as it is linked to a service')
     );
   }
 }

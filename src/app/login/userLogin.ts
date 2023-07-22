@@ -1,4 +1,4 @@
-export class ClientLogin {
+export class UserLogin {
   username: string;
   password: string;
 }

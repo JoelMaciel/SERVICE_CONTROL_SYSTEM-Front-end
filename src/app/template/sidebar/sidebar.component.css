@@ -14,3 +14,9 @@
   top: 4px;
   transform: scale(1.13);
 }
+.exit_style {
+  color: rgb(150, 140, 7);
+}
+.exit_style:hover {
+  color: rgb(116, 108, 6);
+}

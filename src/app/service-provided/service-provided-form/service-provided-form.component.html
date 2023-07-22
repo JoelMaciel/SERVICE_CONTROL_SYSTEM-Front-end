@@ -8,7 +8,11 @@
   <form #form="ngForm" (submit)="onSubmit()">
     <div class="row">
       <div class="col-md-12">
-        <div class="alert alert-success" role="alert" *ngIf="success == true">
+        <div
+          class="alert alert-success text-center"
+          role="alert"
+          *ngIf="success == true"
+        >
           Service provided successfully saved
         </div>
         <div
@@ -31,7 +35,7 @@
           >
             <option value="">Select...</option>
             <option *ngFor="let client of clients" [ngValue]="client.id">
-              {{ client.username }}
+              {{ client.name }}
             </option>
           </select>
         </div>

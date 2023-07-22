@@ -13,7 +13,7 @@ export class ClientsService {
   apiURL: string = environment.apiBaseURL + '/api/clients';
   apiURLSignup = environment.apiBaseURL + '/api/auth/signup';
 
-  constructor(private http: HttpClient, private authService: AuthService) {}
+  constructor(private http: HttpClient) {}
 
   listClients(): Observable<Client[]> {
     return this.http.get<Client[]>(this.apiURL);
@@ -24,8 +24,7 @@ export class ClientsService {
   }
 
   update(client: Client): Observable<UpdateClient> {
-    const { id, cpf, password, creationDate, updateDate, ...updateClientData } =
-      client;
+    const { id, cpf, creationDate, updateDate, ...updateClientData } = client;
     return this.http.put<UpdateClient>(
       `${this.apiURL}/${client.id}`,
       updateClientData
@@ -33,7 +32,7 @@ export class ClientsService {
   }
 
   save(client: Client): Observable<Client> {
-    return this.http.post<Client>(this.apiURLSignup, client);
+    return this.http.post<Client>(this.apiURL, client);
   }
 
   delete(client: Client): Observable<any> {

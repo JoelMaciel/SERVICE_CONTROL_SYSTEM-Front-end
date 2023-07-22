@@ -1,11 +1,11 @@
-<h2 class="mt-4 client__name">Clients</h2>
+<h2 class="mt-4 client__name text-center">Users</h2>
 <ol class="breadcrumb mb-4">
   <li class="breadcrumb-item active">
-    {{ client.id ? "Edition" : "Register" }}
+    {{ user.id ? "Edition" : "Register" }}
   </li>
 </ol>
 <div class="container">
-  <form #clientForm="ngForm" (ngSubmit)="onSubmit()">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()">
     <div class="row">
       <div class="col-md-12">
         <div class="alert alert-success" role="alert" *ngIf="success == true">
@@ -24,14 +24,14 @@
       </div>
     </div>
 
-    <div class="row" *ngIf="client.id">
+    <div class="row" *ngIf="user.id">
       <div class="col-md-6">
         <div class="form-group">
           <label>Code :</label>
           <input
             type="text"
             class="form-control"
-            [ngModel]="client.id"
+            [ngModel]="user.id"
             name="id"
             disabled="true"
           />
@@ -44,7 +44,7 @@
             type="text"
             class="form-control"
             name="creationDate"
-            [ngModel]="client.creationDate"
+            [ngModel]="user.creationDate"
             disabled="true"
           />
         </div>
@@ -57,7 +57,7 @@
           <input
             type="text"
             class="form-control"
-            [(ngModel)]="client.name"
+            [(ngModel)]="user.username"
             name="name"
           />
         </div>
@@ -68,8 +68,9 @@
           <input
             type="text"
             class="form-control"
-            [(ngModel)]="client.cpf"
+            [(ngModel)]="user.cpf"
             name="cpf"
+            disabled="true"
           />
         </div>
       </div>
@@ -79,7 +80,7 @@
           <input
             type="text"
             class="form-control"
-            [(ngModel)]="client.email"
+            [(ngModel)]="user.email"
             name="email"
           />
         </div>
@@ -87,16 +88,16 @@
     </div>
     <div class="row">
       <div class="col-md-3 mb-4 mt-3">
-        <button type="submit" class="btn btn__style_save" *ngIf="!client.id">
+        <button type="submit" class="btn btn__style_save" *ngIf="!user.id">
           <i class="fa fa-save"></i> Save
         </button>
-        <button type="submit" class="btn btn__style_update" *ngIf="client.id">
+        <button type="submit" class="btn btn__style_update" *ngIf="user.id">
           <i class="fa fa-sync-alt"></i> Update
         </button>
         <button
           type="button"
           class="btn ml-3 btn__style_list"
-          (click)="listClients()"
+          (click)="listUsers()"
         >
           <i class="fa fa-arrow-circle-left"></i> List
         </button>

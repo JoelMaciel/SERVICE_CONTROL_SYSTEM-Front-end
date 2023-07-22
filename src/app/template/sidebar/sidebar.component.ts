@@ -13,7 +13,7 @@ export class SidebarComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    this.loggedUser = this.authService.getClientAuthenticated();
+    this.loggedUser = this.authService.getUserAuthenticated();
   }
 
   logout() {

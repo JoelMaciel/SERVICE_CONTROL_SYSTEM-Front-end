@@ -9,7 +9,7 @@
           <div class="col-lg-5">
             <div class="car shadow border-0 rounded-lg mt-5">
               <div class="card-header">
-                <h3 class="text-center font-weight-light my-4">Sign In</h3>
+                <h3 class="text-center font-weight-light my-4">Sign Up</h3>
               </div>
               <div class="card-body">
                 <div class="alert alert-success" *ngIf="successMessage">
@@ -21,7 +21,7 @@
                 <div class="alert alert-danger" *ngIf="errorViolation">
                   {{ errorViolation }}
                 </div>
-                <form #loginForm="ngForm" (submit)="onSubmit()">
+                <form #signupForm="ngForm" (submit)="onSubmit()">
                   <div class="form-group">
                     <label class="small mb-2">
                       <i class="fa fa fa-user mr-1"></i>
@@ -30,12 +30,39 @@
                     <input
                       type="text"
                       class="form-control py-4"
+                      [(ngModel)]="user.username"
                       name="username"
-                      [(ngModel)]="username"
                       autocomplete="off"
-                      placeholder="Enter your username"
+                      placeholder="Register your username"
                     />
                   </div>
+                  <div class="form-group">
+                    <label class="small mb-2">
+                      <i class="fa fa-lock mr-1"></i>
+                      E-mail</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control py-4"
+                      name="email"
+                      [(ngModel)]="user.email"
+                      placeholder="Register your email"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label class="small mb-2">
+                      <i class="fa fa-lock mr-1"></i>
+                      CPF</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control py-4"
+                      name="cpf"
+                      [(ngModel)]="user.cpf"
+                      placeholder="Register your CPF, numbers only"
+                    />
+                  </div>
+
                   <div class="form-group">
                     <label class="small mb-2">
                       <i class="fa fa-lock mr-1"></i>
@@ -45,52 +72,27 @@
                       type="password"
                       class="form-control py-4"
                       name="password"
-                      [(ngModel)]="password"
-                      placeholder="Enter your password"
+                      [(ngModel)]="user.password"
+                      placeholder="Register your password, 8 characters minimum"
                     />
                   </div>
                   <div
                     class="form-group align-items-center justify-content-between mt-4 mb-0"
                   >
-                    <button
-                      type="submit"
-                      class="btn btn_login btn_style"
-                      (click)="loginClient()"
-                      *ngIf="!registering"
-                    >
-                      Login
-                    </button>
-                    <!-- <div class="text-center">
-                      <button
-                        type="button"
-                        class="btn btn_style btn_login"
-                        *ngIf="registering"
-                      >
+                    <div class="text-center">
+                      <button type="button" class="btn btn_style btn_login">
                         Register
                       </button>
                       <button
                         type="button"
                         (click)="unsubscribe()"
                         class="btn btn-cancel btn_style ml-2"
-                        *ngIf="registering"
                       >
                         Cancel
                       </button>
-                    </div> -->
+                    </div>
                   </div>
                 </form>
-              </div>
-              <div class="card-footer text-center">
-                <div class="small btn_style">
-                  <a
-                    routerLink="/signup"
-                    class="link_style"
-                    (click)="prepareRegistration($event)"
-                  >
-                    Don't have an account? Register!
-                    <i class="fa fa-heart ml-1"></i
-                  ></a>
-                </div>
               </div>
             </div>
           </div>
